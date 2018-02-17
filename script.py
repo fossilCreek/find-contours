@@ -1,26 +1,32 @@
 # -*- coding: UTF-8 -*-
 
 import numpy as np
-import cv2
-import sys
-import os
+import cv2, sys, os, re
+
+supportExtends = ['.jpg', '.png', '.bpm']
+contoursColors = {"green":(0, 255, 0), "blue":(0, 0, 255), "red":(255, 0, 0)}
+
+def isCorrectFileExtends(str):
+	if str == '':
+		return false
+	else:
+		pass
+
 
 if __name__ == "__main__":
-	#Please input name file for analisys in current directory or full path
 	fileName = input("Please input file's name for analisys in current directory or full path - ")
+	fileExtends = input("Please input extends for saving files: png, jpeg, bmp and so on - ")
+	setupColor = input("Please input colors for drawing contours - ").lower()
 	img = cv2.imread(fileName)
-	fileExtends = input("Please input extends for saving files - png, jpeg, bmp and so on")
-	if img is not None:
-		#File was create. Processing is starting.
-		print("Файл задан. Начинаем обработку")
+	if (img is not None) and (isCorrectFileExtends(fileExtends) ) and (setupColor in contoursColors) :
+		print("File was selected. Processing is starting.")
 		cv2.imshow("Starting image", img)
 
-		#Change colors to gray's shade and grow down sharpness
-		print("Меняем цвет на оттенки серого и уменьшаем резкость")
+		print("Change colors to gray's shade and grow down sharpness")
 		gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 		gray = cv2.GaussianBlur(gray, (3, 3), 0)
 		cv2.imwrite("gray."+fileExtends, gray)
-		print("Result operation is saved image with name -  gray.png")
+		print('Result operation is saved image with name -  gray.{}'.format(fileExtends) )
 		cv2.imshow("Gray image", gray)
 		# response figure's edge
 
@@ -46,13 +52,14 @@ if __name__ == "__main__":
 		for c in cnts:
 			cv2.drawContours(image, cnts, -1, (0, 255, 0), 4)
 		cv2.imwrite("output."+fileExtends, image)
-		print("Result image name is output.png")
+		print("Result image name is result.png")
 		cv2.imshow("Output image", image)
 
 		cv2.waitKey(0);
 		cv2.destroyAllWindows();
-	else:
-		#Not correct input filename or full path to your file
-		print("Не верно задан путь или имя файла")
+	elif (img is None):
+		print("Not correct input filename or full path to your file")
+	elif (isCorrectFileExtends(fileExtends)):
+		print("Not correct file extends - {}".format(fileExtends))
 
 	os.system("pause")
