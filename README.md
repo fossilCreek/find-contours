@@ -1,12 +1,15 @@
 Find Contours
 =============
-Simple python3 script to find contours in selected images file
+Simple python3 script to find contours in selected images file.
+Result output 4 files: gray, edged, closed, result
 
 ## Usage
 
 ```
 git clone https://github.com/mrfoe7/find-contours.git
+cd find-contours
 python3 script.py
+follow messages on screen
 ```
 
 ## Notice
