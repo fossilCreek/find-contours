@@ -2,15 +2,15 @@ Find Contours
 =============
 Simple python3 script to find contours in selected images file
 
-### Usage
-============
+## Usage
+
 ```
 git clone https://github.com/mrfoe7/find-contours.git
 python3 script.py
 ```
 
-### Notice
-============
+## Notice
+
 If you need \*.exe application use:
 
 * [py2exe](http://www.py2exe.org/) is probably what you want, but it only works on Windows.
@@ -19,8 +19,8 @@ If you need \*.exe application use:
 
 To further avoid conflicts and to make development easier, Python’s [virtual environments](https://docs.python.org/3/library/venv.html) are highly recommended for development purposes.
 
-### Dependencies and Resources
-============
+## Dependencies and Resources
+
 * [numpy](http://www.numpy.org/) pip install numpy
 * [matplotlib](https://matplotlib.org/) pip install matplotlib
 * [cv2](https://opencv.org/) pip install opencv-python
