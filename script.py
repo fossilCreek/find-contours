@@ -57,7 +57,7 @@ if __name__ == "__main__":
 			cv2.imshow("Output image", image)
 
 			print("If you want close all windows press key - 'q' ")
-			if (cv2.waitKey(1) & 0xFF == ord('q') ) and ():
+			if (cv2.waitKey(1) & 0xFF == ord('q') ):
 				cv2.destroyAllWindows();
 	elif (img is None):
 		print("Not correct input filename or full path to your file - {}".format(fileName))
